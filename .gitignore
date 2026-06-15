@@ -1,0 +1,11 @@
+[Ll]ibrary/
+[Tt]emp/
+[Ll]ogs/
+UserSettings/
+Obj/
+Build/
+Builds/
+
+*.csproj
+*.sln
+*.slnx
