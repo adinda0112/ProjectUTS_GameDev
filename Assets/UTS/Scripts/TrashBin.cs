@@ -20,7 +20,9 @@ public class TrashBin : MonoBehaviour
 
             if (trashCount >= totalTrash)
             {
-                Debug.Log("MISSION COMPLETE");
+                Debug.Log("YOU WIN!");
+
+                Time.timeScale = 0;
             }
         }
     }
