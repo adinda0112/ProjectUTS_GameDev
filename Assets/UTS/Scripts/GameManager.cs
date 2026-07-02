@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +7,13 @@ public class GameManager : MonoBehaviour
 
     public int totalTrash;
     public int collectedTrash;
+
+    public TMP_Text trashText;
+
+    [Header("Win Panel")]
+    public GameObject winPanel;
+    public TMP_Text winTrashText;
+    public TMP_Text winTimeText;
 
     private void Awake()
     {
@@ -16,12 +24,14 @@ public class GameManager : MonoBehaviour
     {
         totalTrash = GameObject.FindGameObjectsWithTag("pickup").Length;
 
-        Debug.Log("Total Sampah : " + totalTrash);
+        UpdateTrashUI();
     }
 
     public void AddTrash()
     {
         collectedTrash++;
+
+        UpdateTrashUI();
 
         Debug.Log("Sampah Dibersihkan : "
                   + collectedTrash +
@@ -34,11 +44,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void UpdateTrashUI()
+    {
+        trashText.text = collectedTrash + " / " + totalTrash;
+    }
+
     void WinGame()
     {
         Debug.Log("YOU WIN!");
 
-        PlayerPrefs.SetInt("Level2Unlocked", 1);
-        PlayerPrefs.Save();
+        Time.timeScale = 0f;
+
+        winPanel.SetActive(true);
+
+        winTrashText.text =
+            "Trash : " +
+            collectedTrash +
+            " / " +
+            totalTrash;
+
+        TimerManager timer =
+            FindFirstObjectByType<TimerManager>();
+
+        if (timer != null)
+        {
+            int timeLeft =
+                Mathf.CeilToInt(timer.timeRemaining);
+
+            winTimeText.text =
+                "Time Left : " + timeLeft + " s";
+        }
     }
 }

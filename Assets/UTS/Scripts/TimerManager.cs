@@ -39,7 +39,7 @@ public class TimerManager : MonoBehaviour
 
     void GameOver()
     {
-        timerText.text = "GAME OVER";
+        timerRunning = false;
 
         Debug.Log("GAME OVER");
     }

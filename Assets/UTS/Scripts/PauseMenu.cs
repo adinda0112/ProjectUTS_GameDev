@@ -24,8 +24,8 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
     }
 
     public void ResumeGame()
@@ -38,8 +38,8 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     public void RestartLevel()
@@ -48,8 +48,8 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -60,8 +60,8 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
 
         SceneManager.LoadScene("MainMenu");
     }
